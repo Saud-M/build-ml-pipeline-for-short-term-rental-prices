@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 """
 Performs basic cleaning on the data and save the results in Weights & Biases
+
+Author: Saud
+Date: January 2023
 """
 import argparse
 import logging
@@ -13,7 +16,19 @@ logger = logging.getLogger()
 
 
 def go(args):
-
+    """
+    Function to download data from W&B, apply basic data cleaning, and logging
+    argument:
+        args : command line argument to specify artifact information and
+            basic cleaning configuration
+            --input_artifact: str
+            --output_artifact: str
+            --output_type: str
+            --output_description: str
+            --min_price: float
+            --max_price: float
+    """
+    
     run = wandb.init(job_type="basic_cleaning")
     run.config.update(args)
 
