@@ -40,6 +40,8 @@ def go(args):
     # Save the cleaned dataset
     logger.info("Saving the output artifact")
     file_name = "clean_sample.csv"
+    idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
+    df = df[idx].copy()
     df.to_csv(file_name, index=False)
 
     artifact = wandb.Artifact(
