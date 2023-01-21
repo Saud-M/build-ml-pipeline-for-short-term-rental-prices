@@ -4,6 +4,14 @@ import scipy.stats
 
 
 def test_column_names(data):
+    """
+    Test function to check if column names in the dataset 
+    same as our list of expected column names
+    argument:
+        data : pandas dataframe
+    return:
+        None
+    """
 
     expected_colums = [
         "id",
@@ -31,6 +39,14 @@ def test_column_names(data):
 
 
 def test_neighborhood_names(data):
+    """
+    Test funtion to check if neighbourhood_group column, contain
+    the expected unique value
+    argument:
+        data : pandas dataframe
+    return:
+        None
+    """
 
     known_names = ["Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"]
 
@@ -65,7 +81,14 @@ def test_similar_neigh_distrib(data: pd.DataFrame, ref_data: pd.DataFrame, kl_th
 ########################################################
 
 def test_row_count(data):
+    """
+    Test function to check that the size of the dataset is not too small or too large.
+    """
+
     assert 15000 < data.shape[0] < 1000000
 
 def test_price_range(data, min_price, max_price):
+    """
+    Test function to check range of price value
+    """
     assert data['price'].between(min_price, max_price).all()

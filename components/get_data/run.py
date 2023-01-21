@@ -15,7 +15,9 @@ logger = logging.getLogger()
 
 
 def go(args):
-
+    """
+    This is to download data
+    """
     run = wandb.init(job_type="download_file")
     run.config.update(args)
 

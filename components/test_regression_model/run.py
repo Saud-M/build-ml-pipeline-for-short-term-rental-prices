@@ -17,7 +17,9 @@ logger = logging.getLogger()
 
 
 def go(args):
-
+    """
+    Test regression performance
+    """
     run = wandb.init(job_type="test_model")
     run.config.update(args)
 
